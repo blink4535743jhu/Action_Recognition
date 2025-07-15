@@ -1,6 +1,6 @@
 #!/bin/bash
 python run.py \
-    --frame_dir /content/Action_Recognition \
+    --frame_dir /content/Action_Recognition/UCF50 \
     --train_size 0.75 \
     --test_size 0.15 \
     --model_type lrcn \
