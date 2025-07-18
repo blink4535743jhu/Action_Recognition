@@ -22,10 +22,17 @@ However, the commands from these cells can also be executed in an independent, l
 ## Dataset Preparation
 
 ### Step 0: Download and Unzip Dataset
+0. **Download repository**
+   The reposity is downloaded using cell 0a, using the below command:
+   !git clone https://github.com/blink4535743jhu/Action_Recognition
+   Following download, directory is changed to the downloaded Action_Recognition folder.
+   %cd Action_Recognition
+   Finally, required libraries are installed with this final line:
+   %pip install -qr requirements.txt
+   
+2. **Download Dataset:**  
 
-1. **Download Dataset:**  
-
-   The dataset is downloaded in cell 0b, using the following command:
+   The dataset is downloaded using cell 0b, using the following command:
    !wget --no-check-certificate https://www.crcv.ucf.edu/data/UCF50.rar
    Ensure file is downloaded to the /content/Action_Recognition folder (run cell 0a before 0b).
    The UCF50 dataset can alternatively be downloaded from [(https://www.crcv.ucf.edu/data/UCF50.rar)].
@@ -51,8 +58,8 @@ Each subdirectory represents a different action class.
 This project requires Python 3.7 or higher.
 
 2. **Dependencies:**  
-Install the required Python packages by running step 0a. in the google colab notebook.
-
+Install the required Python packages by running step 0a. in the google colab notebook, as directed in step 0 of this README.
+Command line is shown below for reference:
 """
 !git clone https://github.com/blink4535743jhu/Action_Recognition
 %cd Action_Recognition
@@ -71,8 +78,8 @@ Install the required Python packages by running step 0a. in the google colab not
 
 ## Hardware Requirements
 
-This code was run using the Google Colab A100 notebook.
-The repository can be executed using a CUDA-enabled GPU is recommended for training. 
+This code was run using the Google Colab notebook's A100 GPU.
+The repository can be executed using a CUDA-enabled GPU for training. 
 The code automatically detects GPU availability.
  
 ---
@@ -124,6 +131,8 @@ bash train.sh
 **Important:** Update the `--frame_dir` argument in the script to point to the directory where your preprocessed frame data is stored. You can also adjust other parameters (e.g., number of frames per video, batch size, learning rate) to see how they affect the experiment.
 
 If using the google colab environment, the folders will be set up properly to link to /content/Action_Recognition/Preprocessed_UCF50.
+
+"train.sh" can be modified as desired to tinker with specific training parameters.
 
 ## During Training, the Script Will:
 
