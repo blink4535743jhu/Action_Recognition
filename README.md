@@ -1,4 +1,4 @@
-# Video Classification with UCF50 using the LRCN model
+# Action Recognition Classification with UCF50 using the LRCN model
 
 This project implements an action classification pipeline using the UCF50 dataset. It leverages a Long-term Recurrent Convolutional Network (LRCN) model that extracts spatial features from individual video frames via a ResNet backbone and learns temporal dynamics through an LSTM. The project includes scripts for preprocessing, training, and testing the model.
 
@@ -171,7 +171,7 @@ You can modify several parameters to experiment with different settings:
 ### Data Parameters
 
 - `--frame_dir`: Path to your preprocessed frames.
-- `--fr_per_vid`: Number of frames to sample per video.
+- `--fr_per_vid`: Number of frames to sample per video. Note that preprocessing in google colab cell 1 is set to "16" frames per preprocessed clip.
 
 ### Model Parameters
 
@@ -191,7 +191,8 @@ By tweaking these parameters, you can study their impact on model performance an
 ## Summary of Steps
 
 - **Step 0: Dataset Preparation**  
-  Run all cell 0 and cell 1 in google colab, or if local: download, unzip, and organize the UCF50 dataset into subdirectories by action class.
+  Run all "cell 0" cells in order and cell 1 in Google Colab, or if local: download, unzip, and organize the UCF50 dataset into subdirectories by action class, with
+  repository files in the same folder location as the folder containing all UCF50 clips.
 
 - **Step 1: Run Training**  
   Run cell 2 in google colab, or execute `train.sh` after configuring the `--frame_dir` and other hyperparameters to train the model.
