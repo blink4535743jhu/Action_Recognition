@@ -2,7 +2,9 @@
 
 This project implements an action classification pipeline using the UCF50 dataset. It leverages a Long-term Recurrent Convolutional Network (LRCN) model that extracts spatial features from individual video frames via a ResNet backbone and learns temporal dynamics through an LSTM. The project includes scripts for preprocessing, training, and testing the model.
 
-This project uses a google colab file "video_action.ipynb" to assist in file execution. The README is structured around executing cells in Google Colab. However, the commands from these cells can also be executed in an independent, local environment.
+This project uses a Google Colab file "video_action.ipynb" to assist in file execution. The README is structured around executing cells in Google Colab. 
+If using the Google Colab notebook, it will download and organize all files within its /content repository automatically. Directories in the bash files are set up with Google Colab's directories in mind.
+However, the commands from these cells can also be executed in an independent, local environment, with the bash files modified to point to the appropriate directory. 
 ---
 
 ## Table of Contents
