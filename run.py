@@ -177,6 +177,19 @@ def main(args):
         ts_dataset = VideoDataset(ts_split, fr_per_vid, val_ts_transforms)
         dataloaders = test_dloaders(ts_dataset, batch_size, model_type)
 
+        # Start of my modified code
+        # Path to your data folder
+        data_root = "/content/Action_Recognition/Preprocessed_UCF50"
+
+        # Get list of all class folder names
+        all_cats = sorted([d for d in os.listdir(data_root) if os.path.isdir(os.path.join(data_root, d))])
+
+        # Create labels_dict mapping class name to index
+        labels_dict = {cat: idx for idx, cat in enumerate(all_cats)}
+
+        print("Classes:", all_cats)
+        print("Label Mapping:", labels_dict)
+        #End of my modified code
         # Load the trained model checkpoint
         model.load_state_dict(torch.load(args.ckpt))
         model.to(device)
@@ -184,8 +197,8 @@ def main(args):
 
         print('The overall test accuracy is {:.4f}%.'.format(100 * accuracy))
         # Optionally, generate a detailed test report or confusion matrix:
-        # print(get_test_report(targets, outputs, all_cats))
-        # print(get_confusion_matrix(targets, outputs, labels_dict, all_cats))
+        print(get_test_report(targets, outputs, all_cats))
+        print(get_confusion_matrix(targets, outputs, labels_dict, all_cats))
 
     else:
         raise ValueError('The mode argument must be either "train" or "eval".')
